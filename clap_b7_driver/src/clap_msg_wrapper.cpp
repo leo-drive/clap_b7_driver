@@ -22,7 +22,7 @@ namespace clap_b7{
     }
     
     bool ClapMsgWrapper::is_delay_high(int64_t clap_timestamp){
-        return ((clap_timestamp - rclcpp::Clock().now().nanoseconds()) > 100000000 || (clap_timestamp - rclcpp::Clock().now().nanoseconds()) < 0);
+        return ((rclcpp::Clock().now().nanoseconds() - clap_timestamp) > 100000000 || (rclcpp::Clock().now().nanoseconds() - clap_timestamp) < 0);
     }
 
     bool ClapMsgWrapper::is_ins_active(const clap_b7::InsPvax& ins){
